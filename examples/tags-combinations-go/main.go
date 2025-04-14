@@ -95,15 +95,15 @@ func main() {
 		// 	return err
 		// }
 
-		ctx.Export("bucket", exportTags(bucket.Tags))
-		// ctx.Export("get-bucket", exportTags(getBucket.Tags))
-		ctx.Export("legacy-bucket", exportTags(legacyBucket.Tags))
-		// ctx.Export("get-legacy-bucket", exportTags(getLegacyBucket.Tags))
+		ctx.Export("bucket", exportTags(bucket.TagsAll))
+		// ctx.Export("get-bucket", exportTags(getBucket.TagsAll))
+		ctx.Export("legacy-bucket", exportTags(legacyBucket.TagsAll))
+		// ctx.Export("get-legacy-bucket", exportTags(getLegacyBucket.TagsAll))
 		ctx.Export("bucket-name", bucket.Bucket)
 		ctx.Export("legacy-bucket-name", legacyBucket.Bucket)
-		ctx.Export("appconfig-app", exportTags(app.Tags))
+		ctx.Export("appconfig-app", exportTags(app.TagsAll))
 		ctx.Export("appconfig-app-arn", app.Arn)
-		ctx.Export("appconfig-env", exportTags(env.Tags))
+		ctx.Export("appconfig-env", exportTags(env.TagsAll))
 		ctx.Export("get-appconfig-env", exportTags(getEnv.Tags))
 		ctx.Export("appconfig-env-arn", env.Arn)
 
@@ -112,7 +112,7 @@ func main() {
 }
 
 func exportTags(tags pulumi.StringMapOutput) pulumi.StringOutput {
-	return tags.ApplyT(func(x interface{}) string {
+	return pulumi.Unsecret(tags).ApplyT(func(x interface{}) string {
 		b, err := json.Marshal(x.(map[string]string))
 		if err != nil {
 			panic(err)

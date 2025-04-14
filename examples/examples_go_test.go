@@ -248,7 +248,9 @@ func (st tagsState) validateStateResult(phase int) func(
 				continue
 			}
 
-			actualTagsJSON := v.(string)
+			actualTagsJSON, ok := v.(string)
+			require.Truef(t, ok, "Expected an output for key %s to be a string, got %v", k, v)
+
 			var actualTags map[string]string
 			err := json.Unmarshal([]byte(actualTagsJSON), &actualTags)
 			require.NoError(t, err)
@@ -282,25 +284,24 @@ func (st tagsState) validateStateResult(phase int) func(
 					"bad appconfig app tags")
 			}
 			if k == "appconfig-env" {
-				getTags := stack.Outputs["get-appconfig-env"].(string)
-				isEqual(t, v.(string), getTags)
 				arn := stack.Outputs["appconfig-env-arn"].(string)
 				st.assertTagsEqualWithRetry(t,
 					fetchAppConfigTags(arn),
-					"bad appconfig app tags")
+					"appconfig.Environment did not get tagged correctly")
+
+				st.assertTagsEqualWithRetry(t,
+					func() (map[string]string, error) {
+						s := stack.Outputs["get-appconfig-env"].(string)
+						var tags map[string]string
+						if err := json.Unmarshal([]byte(s), &tags); err != nil {
+							return nil, err
+						}
+						return tags, nil
+					},
+					"appconfig.GetEnvironment did not return the expected tags")
 			}
 		}
 	}
-}
-
-func isEqual(t *testing.T, a, b string) {
-	if a == "null" {
-		a = "{}"
-	}
-	if b == "null" {
-		b = "{}"
-	}
-	assert.Equal(t, a, b)
 }
 
 func fetchBucketTags(awsBucket string) tagsFetcher {
